@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+
+	<style type="text/css">
+		/*
+		img{
+			position: relative;
+		}*/
+		
+		.dot{
+			display: flex;
+/*			margin: auto;*/
+			margin-left: 50%;
+			transform: translateX(-13%);
+
+		}
+		.dot div{
+			height: 20px;
+			width: 20px;
+/*			background-color: red;*/
+			margin: 10px 10px;
+			border-radius: 50%;
+		}
+
+	</style>
+	<script type="text/javascript">
+		var y=0,x;
+
+
+		function sliderdata() {
+			
+			var img=document.getElementsByClassName('img');
+			for (var i = 0	; i < img.length; i++) {
+				img[i].style.display="none";
+			}
+
+			var dot=document.getElementsByClassName('dott');
+			for (var i = 0	; i < dot.length; i++) {
+				dot[i].style.backgroundColor="grey";
+			}
+
+			img[y].style.display="block";
+			dot[y].style.backgroundColor="red";
+
+
+		}
+
+		function img(x) {
+			y=x;
+
+			sliderdata();
+		}
+
+	window.onload=function () {
+
+		sliderdata();
+
+	}
+		
+	</script>
+
+</head>
+<body>
+
+
+<img src="1.jpg" width="100%" height="600px" class="img" id="img1">
+<img src="2.jpg" width="100%" height="600px" class="img" id="img2">
+<img src="3.jpg" width="100%" height="600px" class="img" id="img3">
+<img src="4.jpg" width="100%" height="600px" class="img" id="img4">
+<img src="5.jpg" width="100%" height="600px" class="img" id="img5">
+
+<div class="dot">
+	<div onclick="img('0')" class="dott"></div>
+	<div onclick="img('1')" class="dott"></div>
+	<div onclick="img('2')" class="dott"></div>
+	<div onclick="img('3')" class="dott"></div>
+	<div onclick="img('4')" class="dott"></div>
+</div>
+
+
+
+</html>

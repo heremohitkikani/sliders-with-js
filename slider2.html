@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+
+	  <link rel="stylesheet" href="css/all.min.css">
+
+	<style type="text/css">
+		
+		img{
+			position: relative;
+		}
+		.button
+		{
+			display: flex;
+			position: absolute;
+			justify-content: space-between;
+			top: 43%;
+			left: 0%;
+			transform: translateY(-50%);
+			width: 100%;
+/*			margin: 0 80px;*/
+		}
+		.button button{
+			margin: 50px;
+			padding: 15px 18px;
+			font-size: 20px;
+			background-color: grey;
+			border: none;
+			border-radius: 50%;
+		}
+
+	</style>
+	<script type="text/javascript">
+		var temp=0;
+
+		function sliderdata() {
+			
+			var img=document.getElementsByClassName('img');
+			for (var i = 0; i < img.length; i++) {
+				img[i].style.display="none";
+			}
+			img[temp].style.display="block";
+
+		}
+
+		function next() {
+			if(temp==0)
+			{
+				document.getElementById('pre').disabled = false;
+
+			}
+			if(temp==4)
+			{
+				document.getElementById('next').disabled = true;
+
+			}
+			else
+			{
+
+			temp++;
+
+			sliderdata();
+			}
+			
+
+		}
+		function pre() {
+			if(temp==4)
+			{
+				document.getElementById('next').disabled = false;
+
+			}
+			if(temp==0)
+			{
+				document.getElementById('pre').disabled = true;
+			}
+			else{
+
+
+			temp--;
+			sliderdata();
+			}
+
+		}
+
+	window.onload=function () {
+		sliderdata();
+		document.getElementById('pre').disabled = true;
+
+	}
+		
+	</script>
+
+</head>
+<body>
+
+
+<img src="1.jpg" width="100%" height="600px" class="img">
+<img src="2.jpg" width="100%" height="600px" class="img">
+<img src="3.jpg" width="100%" height="600px" class="img">
+<img src="4.jpg" width="100%" height="600px" class="img">
+<img src="5.jpg" width="100%" height="600px" class="img">
+<div class="button">
+
+	<button onclick="pre()" id="pre"><i class="fa-solid fa-arrow-left-long"></i></button>
+	<button onclick="next()" id="next"><i class="fa-solid fa-arrow-right-long"></i></button>
+		<!-- <input type="button" value="pre" name="" onclick="pre()">
+		<input type="button" value="next" name="" onclick="next()"> -->
+</div>
+</body>
+</html>
